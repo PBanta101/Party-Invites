@@ -1,0 +1,43 @@
+﻿@model PartyInvites.Models.GuestResponse[]
+
+@{
+  Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <title>ListResponses</title>
+  <link rel="stylesheet" href="~/css/tableStyles.css" />
+  <link rel="stylesheet" type="text/css"
+        href="~/lib/bootstrap/dist/css/bootstrap.css" />
+
+</head>
+<body>
+  <h1> People Attending The Party </h1>
+
+  <table class="table table-sm table-striped table-border">
+    <tr>
+      <th> Name </th>
+      <th> Email </th>
+      <th> Phone </th>
+      <th> Attending? </th>
+    </tr>
+    @foreach (GuestResponse r in Model)
+    {
+      @if (r != null)
+      {
+        <tr>
+          <td> @r.Name </td>
+          <td> @r.Email </td>
+          <td> @r.Phone </td>
+          <td> @r.WillAttend </td>
+        </tr>
+      }
+    }
+  </table>
+
+</body>
+</html>
